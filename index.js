@@ -1,4 +1,4 @@
-function gameObject() {
+function gameObject() {  //can we change this to const gameObject?
     return {
         home: {
             teamName: "Brooklyn Nets",
@@ -114,3 +114,146 @@ function gameObject() {
         },
     };
 }
+
+function numPointsScored(playerName) {   
+const data = gameObject();   
+    for (let key in data) {
+        console.log(key);
+
+    console.log(data[key]["players"]);
+
+    for (let player in data[key]["players"]) {
+        if (player === playerName) {
+
+       return data[key]["players"][playerName]["points"];  // return that player's points scored
+        }
+    }
+}
+}
+console.log(numPointsScored("Brendan Hayword"))
+
+
+function shoeSize(playerName) {   
+    const data = gameObject();   
+        for (let key in data) {
+            console.log(key);
+    
+        console.log(data[key]["players"]);
+    
+        for (let player in data[key]["players"]) {
+            if (player === playerName) {
+    
+           return data[key]["players"][playerName]["shoe"];
+            }
+        }
+    }
+    }
+
+    function teamColors(teamName) {   
+        const data = gameObject();   
+            for (let key in data) {
+                console.log(key);
+        
+            console.log(data[key]["teamName"]);
+        
+            for (let team of data[key]["teamName"]) {
+                if (data[key]["teamName"] === teamName) {
+        
+               return data[key]["colors"]; 
+                }
+            }
+        }
+        }
+console.log(teamColors("Charlotte Hornets"))
+
+
+function teamNames() {   
+    const data = gameObject();
+    const names = [];
+        for (let key in data) {
+            names.push(data[key]["teamName"]); 
+    return names;
+}
+}
+
+
+function playerNumbers(teamName) {
+    const data = gameObject(); // Retrieve the game data
+
+    for (let key in data) {
+        if (data[key]["teamName"] === teamName) {
+            return Object.values(data[key]["players"]).map(player => player.number);
+        }
+    }
+}
+        console.log(playerNumbers("Charlotte Hornets"))
+
+  
+function playerStats(playerName) {
+    const data = gameObject(); 
+
+    for (let key in data) {
+        if (playerName in data[key]["players"]) {
+            return data[key]["players"][playerName];
+        }
+    }
+}
+    console.log(playerStats("Brendan Hayword"))
+
+
+function bigShoeRebounds() {
+    const data = gameObject(); 
+    for (let key in data) {
+        for (let players in data[key]["players"]) {
+            const sizes = { ...data[key]["players"]["shoe"]}; 
+    for (let maxSize in sizes) {
+        return data[key]["players"]["rebounds"]
+    };
+        }
+    }
+}
+bigShoeRebounds()
+
+
+function mostPointsScored() {
+const data = gameObject();
+const players = { ...data.home.players, ...data.away.players };  
+findMax(players.points)    // found online
+    let max = arr[0];
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i] > max) {
+        max = arr[i];
+      }
+    }
+    return max;
+  }
+
+console.log("players"[max]);
+
+
+function winningTeam() {
+const data = gameObject();
+    for (let key in data) {
+        for (let points in data[key]["teams"]) {
+            findMax(points["points"])}; 
+        return data[key]["teams"];
+    }
+}
+console.log(winningTeam());
+
+
+
+function playerWithLongestName() {
+    const data = gameObject();
+    for (let key in data) {
+    const players = { ...game.home.players, ...game.away.players };
+map(players.playerName)
+findMax(length.playerName)
+}
+}
+
+
+// doesLongNameStealATon() = returns true if the player with the longest name has the most steals
+// length.
+// if max steals, return true
+// else, return false
